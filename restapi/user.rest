@@ -1,0 +1,16 @@
+POST http://localhost:2000/user/send-otp HTTP/1.1
+Content-Type: application/json
+
+{
+    "phoneno":"9727164672"
+}
+
+###
+POST http://localhost:2000/user/verify-otp HTTP/1.1
+Content-Type: application/json
+
+{
+    "phoneno":"9727164672",
+   "otp": 5404,
+  "hash": "f626d91e5be40db881870d4fbd1ac59856dd619942d26e0b4718129ce4feb4e7.1638364187273"
+}
