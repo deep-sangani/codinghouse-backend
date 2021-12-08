@@ -1,13 +1,13 @@
 import { Schema, model } from 'mongoose';
+import { UserInterface } from './interfaces';
 
-interface User{
-  phone:string,
-  activated:boolean
-}
 
-const userSchema = new Schema<User>({
+
+const userSchema = new Schema<UserInterface>({
   phone:{ type:String, required:true },
   activated:{ type:Boolean, default:false },
 }, { timestamps:true });
 
-export default model('User', userSchema, 'Users');
+
+
+export default model<UserInterface>('User', userSchema, 'Users');

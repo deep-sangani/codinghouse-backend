@@ -6,6 +6,8 @@ export class MongoDb{
       var dbUrl:string = process.env.DATABASE_URL! ;
       await mongoose.connect(dbUrl);
       console.log('database connected');
+     
+     
       
     } catch (error) {
       console.log(error);
