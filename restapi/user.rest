@@ -10,7 +10,7 @@ POST http://localhost:2000/user/verify-otp HTTP/1.1
 Content-Type: application/json
 
 {
-    "phoneno":"+919727164672",
-   "otp": 5037,
-  "hash": "9d9a3bc92dac6ccef7c551f542df1861e6306961140d47e3aa1a61ccf78e0ec0.1638864470226"
+   "otp": 4103,
+  "hash": "4ba09474bb8297f08065c792c16b4605fe73c79d3481ac8b2bc48110b51beec4.1639133498927",
+  "phoneno": "+919727164672"
 }

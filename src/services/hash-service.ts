@@ -8,7 +8,13 @@ export class HashService{
   static async validateHash(data:string, hash:string):Promise<boolean>{
     const genHash = await this.genarateHash(data);
     
-    if (genHash === hash){return true;}
+    if (genHash === hash){
+      console.log({ genHash:genHash === hash });
+      
+      return true;
+    }
+    console.log({ genHash :genHash === hash });
+    
     return false;
   }
 }
