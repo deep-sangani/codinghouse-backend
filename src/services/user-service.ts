@@ -38,7 +38,7 @@ export class UserService {
   }
 
   static async storeImg(avatar:string):Promise<string>{
-    const buffer = await Buffer.from(avatar.replace(/^data:image\/png;base64,/, ''), 'base64');
+    const buffer = await Buffer.from(avatar.replace(/^data:image\/(png|jpg|jpeg);base64,/, ''), 'base64');
     const jimpimg = await Jimp.read(buffer);
     const imgpath = `${Date.now()}-${Math.round(Math.random() * 1e9)}.png`;
     await jimpimg.resize(150, Jimp.AUTO).write(path.resolve(__dirname, `../../storage/${imgpath}`));

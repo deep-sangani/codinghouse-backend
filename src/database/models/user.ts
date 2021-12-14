@@ -4,7 +4,7 @@ import { UserInterface } from './interfaces';
 
 
 const userSchema = new Schema<UserInterface>({
-  phone:{ type:String, required:true },
+  phone:{ type:String, required:true, unique:true },
   activated:{ type:Boolean, default:false },
   name:{ type:String, require:false },
   avatarPath:{ type:String, required:false },
