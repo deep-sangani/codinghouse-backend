@@ -13,7 +13,7 @@ export class UserController{
     }
     
     const otp = await OtpService.ganarateOtp();
-    // UserService.sendOtp(req.body.phoneno, otp);
+    UserService.sendOtp(req.body.phoneno, otp);
     const inputdata = req.body.phoneno + otp.toString();
     const hash = HashService.genarateHash(inputdata);
     const time = 1000 * 60 * 2;
@@ -119,5 +119,21 @@ export class UserController{
       console.log(error);
       return res.status(401).json({ type:'ERROR', message:error  });
     }
+  }
+ 
+  static async logout(req:Request, res:Response):Promise<object>{
+  
+    try {
+      const { refreshToken } = req.cookies;
+      await Token.removeRefreshToken(refreshToken);
+      res.clearCookie('refreshToken');
+      res.clearCookie('accessToken');
+
+      return res.status(200).json({ message:'logout successfully!', user:null, auth:false });
+    } catch (error) {
+      console.log(error);
+      return res.status(401).json({ type:'ERROR', message:error  });
+    }
   } 
+  
 }
